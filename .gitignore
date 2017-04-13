@@ -1,0 +1,21 @@
+# Node + npm
+node_modules
+npm-debug.log
+
+# Project-specific
+.imdone
+# **/config.less
+pigments-report.*
+process-palette.*
+.tern-project
+
+# Symbols
+.tags
+.tags*
+
+# General
+*.log
+*.lock
+*.local.*
+**/local
+*.ai
