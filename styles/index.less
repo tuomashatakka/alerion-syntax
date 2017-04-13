@@ -1,0 +1,107 @@
+
+// Base
+.syntax--source {
+  // -webkit-font-smoothing: antialiased;
+  color: darken(@syntax-text-color, 15%) }
+
+
+
+.syntax--text .syntax--embedded::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: mix(@syntax-text-color, @syntax-background-color)
+}
+.syntax--source {
+  // -webkit-font-smoothing: antialiased;
+  color: @syntax-text-color }
+
+.syntax--constant {
+  color: @syntax-color-constant }
+
+.syntax--type,
+.syntax--control + .syntax--brace,
+.syntax--keyword {
+  color: @syntax-color-keyword }
+
+.syntax--assignment {
+  color: @syntax-color-operator }
+
+.syntax--support {
+  color: @syntax-color-keyword
+}
+.syntax--key,
+.syntax--key .syntax--string,
+.syntax--name,
+.syntax--attribute-name {
+  color: @syntax-color-attribute }
+
+#ident, atom-pa, *[asd="basd"],
+.syntax--attribute-name.syntax--id {
+  color: @syntax-color-attribute-id }
+
+.syntax--value {
+  color: @syntax-color-primitive
+}
+.syntax--string,
+.syntax--quoted {
+  color: @syntax-color-string }
+.syntax--function .syntax--punctuation,
+.syntax--definition.syntax--punctuation,
+.syntax--arguments.syntax--punctuation,
+.syntax--parameters.syntax--punctuation {
+  color: mix(@syntax-background-color, @syntax-color-function)
+}
+
+.syntax--comment.syntax--punctuation {
+  color: mix(@syntax-color-comment, @syntax-background-color) }
+.syntax--comment {
+  color: @syntax-color-comment }
+
+.syntax--embedded,
+.syntax--variable {
+  color: @syntax-color-variable
+}
+.syntax--function,
+.syntax--function .syntax--punctuation,
+.syntax--function + .syntax--brace,
+.syntax--any-method + .syntax--brace,
+.syntax--less .syntax--brace,
+.syntax--property-value .syntax--support,
+.syntax--property-value .syntax--brace,
+.syntax--method-call,
+.syntax--function-call {
+    color: @syntax-color-function
+  }
+  .syntax--class,
+  .syntax--entity,
+  .syntax--entity + .syntax--delimiter {
+    color: @syntax-color-class
+  }
+  // Punctuation & decor
+  .syntax--bracket {
+    font-weight: 600;
+    color: @syntax-color-variable }
+
+  /// Django tags
+  .syntax--tag.syntax--unquoted {
+    color: @syntax-color-attribute }
+
+  .syntax--tag.syntax--unquoted + .syntax--tag.syntax--other {
+    color: darken(@syntax-color-primitive, 8%) }
+
+  .syntax--tag .syntax--name,
+  .syntax--tag *:nth-child(2) {
+    color: @syntax-color-keyword
+  }
+  .syntax--tag,
+  .syntax--tag .syntax--entity {
+    color: @syntax-color-function
+  }
+  .syntax--separator,
+  .syntax--section.syntax--punctuation,
+  .syntax--tag.syntax--punctuation,
+  .syntax--tag .syntax--tagbraces {
+    color: darken(@syntax-color-function, 15%)
+  }

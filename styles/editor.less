@@ -1,0 +1,153 @@
+@import "syntax-mixins";
+
+atom-text-editor {
+  .ui-blend(@syntax-background-color);
+  color: @syntax-text-color;
+
+  // Elements
+
+  .cursor {
+    border-left: 1px solid @syntax-cursor-color }
+
+  .line.cursor-line {
+    background-color: @syntax-cursor-line }
+
+  .selection .region {
+    background-color: @syntax-selection-color }
+
+  .bracket-matcher .region {
+    border-bottom: 2px solid @syntax-bracket-matcher-color;
+    background-color: mix(@syntax-bracket-matcher-color, @syntax-background-color);
+    box-sizing: border-box;
+    border-radius: 1px }
+
+  .gutter .line-number.cursor-line-no-selection {
+    border-radius: 2px;
+    color: @syntax-gutter-text-color-selected }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: red }
+
+  .indent-guide {
+    box-shadow: 1px 0 @syntax-indent-guide-color }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+    color: @syntax-gutter-text-color }
+
+  // Search markers
+  .search-results {
+    .marker .region {
+      //background-color: fade(@syntax-result-marker-color, 40%) !important;
+      border:       0px solid fade(@syntax-result-marker-color, 20%) !important }
+
+    .marker.current-result .region {
+      border:       3px solid fade(@syntax-result-marker-color-selected, 60%) !important }}
+
+  .find-result .region.region.region,
+  .current-result .region.region.region {
+    // background-color: @syntax-result-marker-color;
+    transition: border-color @syntax-transition-time;
+  }
+
+  .current-result .region.region.region {
+    background-color: fadein(@syntax-result-marker-color, 8%);
+    border: 2px solid @syntax-result-marker-color-selected;
+    transition-duration: @syntax-transition-time;
+  }
+
+  .invisible,
+  .invisible-character {
+    color: @syntax-invisible-character-color }
+
+  /*+--------+
+    + Gutter +
+    +--------+*/
+
+  .gutter {
+    .ui-blend(@syntax-gutter-background-color);
+    font-weight: 500;
+    font-family: Helvetica Neue;
+    // -webkit-font-smoothing: antialiased;
+    margin-right: 0;
+    border-right: 0;
+    padding-right: 0;
+
+    .line-numbers {
+      background: transparent !important;
+    }
+
+    .line-number {
+      background: transparent;
+      color: @syntax-gutter-text-color;
+      padding-right: 0;
+
+      &.git-line-added {
+        color: @syntax-color-added;
+        border-left-color: @syntax-color-added;
+
+        &.cursor-line,
+        &.cursor-line-no-selection {
+          color: @syntax-color-added;
+          border-left-color: @syntax-color-added;
+        }
+      }
+
+      &.git-line-modified {
+        color: @syntax-color-modified;
+        border-left-color: @syntax-color-modified;
+
+        &.cursor-line,
+        &.cursor-line-no-selection {
+          color: @syntax-color-modified;
+          border-left-color: @syntax-color-modified;
+        }
+      }
+
+      &.git-line-removed {
+        color: @syntax-color-removed;
+        border-left-color: @syntax-color-removed;
+
+        &.cursor-line,
+        &.cursor-line-no-selection {
+          color: @syntax-color-removed;
+          border-left-color: @syntax-color-removed;
+        }
+      }
+
+      &.cursor-line,
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+        font-weight: 600;
+      }
+
+      .icon-right {
+        opacity: 1.0;
+        color: @syntax-gutter-text-color;
+        transition: all @syntax-transition-time ease;
+      }
+
+      .icon-right:hover {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @syntax-gutter-text-color-selected;
+
+    .icon-right {
+      opacity: 0.5;
+      color: @syntax-gutter-icon-color-folded;
+      transition: all @syntax-transition-time ease;
+
+      &:hover {
+        opacity: 1.0;
+      }
+    }
+  }
+}

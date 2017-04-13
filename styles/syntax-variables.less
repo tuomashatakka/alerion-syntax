@@ -1,0 +1,99 @@
+
+@import "palette";
+
+@cursor-line-alpha:           50%;
+@selection-background-alpha:  80%;
+@syntax-transition-time:      400ms;
+
+
+@syntax-background-color: extract(@palette, 2);
+@syntax-text-color:       extract(@palette, 4);
+@syntax-selection-color:  fade(extract(@palette, 2), @selection-background-alpha);
+@syntax-cursor-line:      fade(extract(@palette, 2), @cursor-line-alpha);
+@syntax-selection-flash-color: extract(@palette, 8);
+
+
+/* Editor */
+@syntax-cursor-color:       @syntax-text-color;
+@syntax-indent-guide-color: extract(@palette, 2);
+@syntax-wrap-guide-color:   extract(@palette, 3);
+@syntax-invisible-character-color: extract(@palette, 3);
+
+
+/* Git state colors */
+@syntax-color-added:    extract(@cc-state, 1);
+@syntax-color-modified: extract(@cc-state, 2);
+@syntax-color-removed:  extract(@cc-state, 3);
+@syntax-color-renamed:  extract(@cc-state, 4);
+
+
+/* Gutter */
+@syntax-gutter-text-color:          @syntax-gutter-text-color-subtle;
+@syntax-gutter-background-color:    @syntax-background-color;
+@syntax-gutter-icon-color-folded:   extract(@palette, 8);
+@syntax-gutter-text-color-selected: extract(@palette, 6);
+@syntax-gutter-text-color-subtle:   fade(@syntax-text-color, 40%);
+@syntax-gutter-background-color-selected: transparent;
+
+
+/* Base */
+@syntax-color-variable:     extract(@palette, 4);
+@syntax-color-class:        extract(@palette, 7);
+@syntax-color-import:       extract(@palette, 7);
+@syntax-color-attribute-id: extract(@palette, 8);
+@syntax-color-method:       extract(@palette, 8);
+@syntax-color-embedded:     extract(@palette, 9);
+@syntax-color-function:     extract(@palette, 9);
+@syntax-color-primitive:    extract(@palette, 9);
+
+@syntax-color-type:         extract(@palette, 7);
+@syntax-color-unit:         extract(@palette, 9);
+@syntax-color-storage:      extract(@palette, 9);
+@syntax-color-tag:          extract(@palette, 9);
+@syntax-color-property:     extract(@palette, 9);
+@syntax-color-attribute:    extract(@palette, 13);
+@syntax-color-keyword:      extract(@palette, 10);
+@syntax-color-require:      extract(@palette, 10);
+
+@syntax-color-preprocessor: extract(@palette, 10);
+@syntax-color-operator:     extract(@palette, 11);
+@syntax-color-constant:     extract(@palette, 11);
+@syntax-color-escape:       extract(@palette, 12);
+@syntax-color-annotation:   extract(@palette, 12);
+
+
+@syntax-color-comment:      extract(@palette, 3);
+@syntax-color-punctuation:  extract(@palette, 4);
+
+@syntax-color-placeholder:  extract(@palette, 12);
+@syntax-color-regexp:       extract(@palette, 13);
+@syntax-color-string:       mix(extract(@palette, 14), @syntax-color-comment);
+@syntax-color-numeric:      extract(@palette, 15);
+
+@syntax-deprecated:         extract(@palette, 13);
+@syntax-illegal:            extract(@palette, 11);
+
+
+/* Discrete components/objects */
+@syntax-color-css-property:       extract(@palette, 7);
+@syntax-color-diff-separator:     extract(@palette, 9);
+@syntax-color-java-bracket-angle: extract(@palette, 9);
+@syntax-color-java-javadoc-tag:   extract(@palette, 7);
+@syntax-color-markup-code:        extract(@palette, 7);
+@syntax-color-markup-entity:      extract(@palette, 12);
+@syntax-color-markup-heading:     extract(@palette, 8);
+@syntax-color-markup-heading-marker: extract(@palette, 9);
+@syntax-color-markup-hr:          extract(@palette, 9);
+@syntax-color-markup-link:        extract(@palette, 8);
+@syntax-color-markup-punctuation: extract(@palette, 9);
+@syntax-color-markup-quote:       extract(@palette, 6);
+
+
+/* Marker */
+@syntax-bracket-matcher-color: extract(@palette, 8);
+@syntax-result-marker-color: fade(extract(@palette, 8), 30%);
+@syntax-result-marker-color-selected: extract(@palette, 8);
+
+
+/* Sizes */
+@syntax-border-radius: 4px;

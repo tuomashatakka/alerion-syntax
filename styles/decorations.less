@@ -1,0 +1,31 @@
+
+// Function call arguments
+.syntax--arguments {
+  color: mix(@syntax-color-function, @syntax-background-color, 75%) !important;
+  font-weight: 200;
+}
+
+
+// Strings' surrounding quote characters
+.syntax--string .syntax--punctuation {
+  color: inherit !important
+}
+
+
+// Separator commas in objects
+.syntax--dictionary .syntax--separator {
+  font-weight: 600;
+  color: @syntax-color-string;
+}
+
+// Values in objects
+.syntax--separator + .syntax--value {
+
+}
+
+
+
+// Comments
+.syntax--comment {
+  font-style: italic;
+}
