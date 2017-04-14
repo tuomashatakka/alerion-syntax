@@ -35,7 +35,7 @@
 		"email": "tuomas.hatakka@gmail.com"
 	},
 	"main": "./index.js",
-	"repository": {},
+  "repository": "https://github.com/tuomashatakka/alerion-syntax",
 	"dependencies": {
 		"auto-updater": "^1.0.2",
 		"eslint": "3.12.2",
