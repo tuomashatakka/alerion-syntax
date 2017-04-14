@@ -6,21 +6,21 @@
 @syntax-transition-time:      400ms;
 
 
-@syntax-background-color: extract(@palette, 2);
-@syntax-text-color:       extract(@palette, 4);
-@syntax-selection-color:  fade(extract(@palette, 2), @selection-background-alpha);
-@syntax-cursor-line:      fade(extract(@palette, 2), @cursor-line-alpha);
+@syntax-background-color:      extract(@palette, 2);
+@syntax-text-color:            extract(@palette, 4);
+@syntax-selection-color:       fade(extract(@palette, 2), @selection-background-alpha);
+@syntax-cursor-line:           fade(extract(@palette, 2), @cursor-line-alpha);
 @syntax-selection-flash-color: extract(@palette, 8);
 
 
 /* Editor */
-@syntax-cursor-color:       @syntax-text-color;
-@syntax-indent-guide-color: extract(@palette, 2);
-@syntax-wrap-guide-color:   extract(@palette, 3);
+@syntax-cursor-color:              @syntax-text-color;
+@syntax-indent-guide-color:        extract(@palette, 2);
+@syntax-wrap-guide-color:          extract(@palette, 3);
 @syntax-invisible-character-color: extract(@palette, 3);
 
 
-/* Git state colors */
+/* States */
 @syntax-color-added:    extract(@cc-state, 1);
 @syntax-color-modified: extract(@cc-state, 2);
 @syntax-color-removed:  extract(@cc-state, 3);

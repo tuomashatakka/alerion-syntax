@@ -3,3 +3,27 @@
   @import "ui-variables";
   background-color: mix(@base-background-color, @c, @amt)
 }
+
+
+.dimmed(punctuation, @color) {
+  color: @color;
+
+  & + .syntax--punctuation,
+  &.syntax--punctuation.syntax--definition,
+  .syntax--punctuation.syntax--definition {
+    color: mix(@syntax-background-color, @color) }
+}
+
+.dimmed(arguments, @color) {
+color: @color;
+
+.syntax--arguments,
+.syntax--parameters,
+.syntax--bracket {
+  color: mix(@syntax-background-color, @color) }
+}
+
+.dimmed(type, @color) {
+.syntax--type {
+  color: saturate(1.5 * mix(@syntax-background-color, @color, 50%), 50%) }
+}

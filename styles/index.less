@@ -5,103 +5,133 @@
   color: darken(@syntax-text-color, 15%) }
 
 
+// Text
+.syntax--bold {
+  font-weight: 900;
+  color: @syntax-color-attribute-id }
+
+.syntax--italic {
+  font-style: italic;
+  color: @syntax-color-function }
+
+.syntax--heading {
+  // font-size: 2em;
+  // line-height: inherit;
+  color: @syntax-color-keyword;
+  font-weight: 700 }
 
 .syntax--text .syntax--embedded::before {
   content: "";
   position: absolute;
-  left: 0;
   right: 0;
-  background: mix(@syntax-text-color, @syntax-background-color)
-}
+  left: 0;
+  background: mix(@syntax-text-color, @syntax-background-color) }
+
+.syntax--comment {
+  .dimmed(punctuation, @syntax-color-comment) }
+
+.syntax--string,
+.syntax--quoted {
+  color: @syntax-color-string }
+
+
+// Base colors
+// -webkit-font-smoothing: antialiased;
 .syntax--source {
-  // -webkit-font-smoothing: antialiased;
   color: @syntax-text-color }
 
+.syntax--import,
+.syntax--module.syntax--variable,
 .syntax--constant {
-  color: @syntax-color-constant }
+  .dimmed(punctuation, @syntax-color-constant) }
 
 .syntax--type,
-.syntax--control + .syntax--brace,
-.syntax--keyword {
-  color: @syntax-color-keyword }
+.syntax--keyword,
+.syntax--control + .syntax--brace {
+  .dimmed(punctuation, @syntax-color-keyword) }
+
+.syntax--operator:not(.syntax--in):not(.syntax--control):not(.syntax--logical):not(.syntax--comparison) {
+  -webkit-text-stroke: 1px;
+  color: @syntax-color-operator }
 
 .syntax--assignment {
   color: @syntax-color-operator }
 
 .syntax--support {
-  color: @syntax-color-keyword
-}
+  color: @syntax-color-keyword }
+
+.leading-whitespace + .syntax--assignment {
+  color: inherit }
+
+
+// Keys and names
 .syntax--key,
 .syntax--key .syntax--string,
 .syntax--name,
 .syntax--attribute-name {
-  color: @syntax-color-attribute }
+  .dimmed(punctuation, @syntax-color-attribute) }
 
 #ident, atom-pa, *[asd="basd"],
 .syntax--attribute-name.syntax--id {
-  color: @syntax-color-attribute-id }
+  .dimmed(punctuation, @syntax-color-attribute-id) }
 
 .syntax--value {
-  color: @syntax-color-primitive
-}
-.syntax--string,
-.syntax--quoted {
-  color: @syntax-color-string }
-.syntax--function .syntax--punctuation,
-.syntax--definition.syntax--punctuation,
-.syntax--arguments.syntax--punctuation,
-.syntax--parameters.syntax--punctuation {
-  color: mix(@syntax-background-color, @syntax-color-function)
-}
+  color: @syntax-color-primitive }
 
-.syntax--comment.syntax--punctuation {
-  color: mix(@syntax-color-comment, @syntax-background-color) }
-.syntax--comment {
-  color: @syntax-color-comment }
-
+// Entities
 .syntax--embedded,
 .syntax--variable {
-  color: @syntax-color-variable
-}
-.syntax--function,
-.syntax--function .syntax--punctuation,
-.syntax--function + .syntax--brace,
+  color: @syntax-color-variable }
+
 .syntax--any-method + .syntax--brace,
 .syntax--less .syntax--brace,
 .syntax--property-value .syntax--support,
 .syntax--property-value .syntax--brace,
 .syntax--method-call,
 .syntax--function-call {
-    color: @syntax-color-function
-  }
-  .syntax--class,
-  .syntax--entity,
-  .syntax--entity + .syntax--delimiter {
-    color: @syntax-color-class
-  }
-  // Punctuation & decor
-  .syntax--bracket {
-    font-weight: 600;
-    color: @syntax-color-variable }
+  color: @syntax-color-function }
 
-  /// Django tags
-  .syntax--tag.syntax--unquoted {
-    color: @syntax-color-attribute }
+// Punctuation & decor
+.syntax--bracket {
+  font-weight: 600;
+  color: @syntax-color-variable }
 
-  .syntax--tag.syntax--unquoted + .syntax--tag.syntax--other {
-    color: darken(@syntax-color-primitive, 8%) }
+/// Django tags
+.syntax--tag.syntax--unquoted {
+  color: @syntax-color-attribute }
 
-  .syntax--tag .syntax--name,
-  .syntax--tag *:nth-child(2) {
-    color: @syntax-color-keyword
-  }
-  .syntax--tag,
-  .syntax--tag .syntax--entity {
-    color: @syntax-color-function
-  }
-  .syntax--separator,
-  .syntax--section.syntax--punctuation,
-  .syntax--tag.syntax--punctuation,
-  .syntax--tag .syntax--tagbraces {
-    color: darken(@syntax-color-function, 15%)
-  }
+.syntax--tag.syntax--unquoted + .syntax--tag.syntax--other {
+  color: darken(@syntax-color-primitive, 8%) }
+
+.syntax--tag .syntax--name,
+.syntax--tag *:nth-child(2) {
+  color: @syntax-color-keyword }
+
+.syntax--tag,
+.syntax--tag .syntax--entity {
+  color: @syntax-color-function }
+
+.syntax--separator,
+.syntax--section.syntax--punctuation,
+.syntax--tag.syntax--punctuation,
+.syntax--tag .syntax--tagbraces {
+  color: darken(@syntax-color-function, 15%) }
+
+// Import statements
+.syntax--storage:nth-child(1) ~ .syntax--brace,
+.syntax--storage + .syntax--brace {
+  color: darken(@syntax-color-constant, 15%) }
+
+
+// Definitions (entities)
+.syntax--class,
+.syntax--entity {
+  .dimmed(arguments, @syntax-color-class) }
+
+.syntax--brace {
+  color: mix(@syntax-background-color, @syntax-color-variable) }
+
+.syntax--function,
+.syntax--function .syntax--operator {
+  .dimmed(type, @syntax-color-class);
+  .dimmed(arguments, @syntax-color-class) }

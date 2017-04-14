@@ -1,5 +1,7 @@
 
-@offset:    -5;
+@offset:    0;
+@diff:      8%;
+@sat:       25%;
 
 @sub:       hsl(205, 15%, 12%); // #181f2d;
 @base:      hsl(210, 30%, 15%); // Background
@@ -30,9 +32,11 @@
             hsl(0,   87%, 60%),
             hsl(340, 95%, 50%);
 @palette:   @sub, @base, @dark, @text, @semi, @lite,
-            @primary,   saturate(darken(@primary, 5%), 25%),   mix(@primary, @secondary),
-            @secondary, saturate(darken(@secondary, 5%), 25%), mix(@secondary, @tertiary),
-            @tertiary,  mix(saturate(lighten(@tertiary, 5%), 50%), @secondary, 60%);
+            @primary,   saturate(darken(@primary, @diff), @sat),   mix(@primary, @secondary),
+            @secondary, saturate(darken(@secondary, @diff), @sat), mix(@secondary, @tertiary),
+            @tertiary,  mix(saturate(lighten(@tertiary, @diff), 2 * @sat), @secondary, 60%);
+
+            @colors: #e8304f, #e71f4c, #cc64d0, #9e72bf, #725db4, #6e89c2, #9ecdb0;
 
             //
             // @offset:    -5;
