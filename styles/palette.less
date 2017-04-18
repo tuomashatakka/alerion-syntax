@@ -1,75 +1,64 @@
 
-@offset:    0;
+// Fallbacks
+@offset:   -5;
 @diff:      8%;
-@sat:       25%;
+@sat:       0.7;
+@lum:       1.15;
+@hue:       210;
+@fft:       10;
 
-@sub:       hsl(205, 15%, 12%); // #181f2d;
-@base:      hsl(210, 30%, 15%); // Background
-@dark:      hsl(216, 26%, 28%); // Comments
-@text:      hsl(220, 25%, 60%); // Main
-@semi:      hsl(228, 30%, 60%);
-@lite:      hsl(236, 30%, 95%);
+@import 'user';
+@import ~"_@{intensity}.less";
 
-@primary:   hsl(@offset + 211, 50%, 57%);
-@secondary: hsl(@offset * 1.33 + 338, 65%, 67%); // Storage, units & keywords
-@tertiary:  hsl(@offset + 164, 100%, 60%);
-@tertiary:  hsl(@offset * 1.67 + 210, 5%, 41%);
+@colors:
+  #e8304f,
+  #e71f4c,
+  #cc64d0,
+  #9e72bf,
+  #725db4,
+  #6e89c2,
+  #9ecdb0;
 
-// extract(@palette, 5): #E5E9F0;
-// extract(@palette, 6): #ECEFF4;
-// extract(@palette, 7): #8FBCBB;
-// extract(@palette, 8): #88C0D0;
-// extract(@palette, 9): #81A1C1;
-// extract(@palette, 10): #5E81AC;
-// extract(@palette, 11): #BF616A;
-// extract(@palette, 12): #D08770;
-// extract(@palette, 13): #EBCB8B;
-// extract(@palette, 14): #A3BE8C;
-// extract(@palette, 15): #B48EAD;
+@sub:       hsl(@hue - 1 * @fft, 15%, 12%); // #181f2d;
+@base:      hsl(@hue, 30%, 15%); // Background
+@dark:      hsl(@hue + 1 * @fft, 25%, 28%); // Comments
+@text:      hsl(@hue + 2 * @fft, 30%, 60%); // Main
+@semi:      hsl(@hue + 3 * @fft, 40%, 60%);
+@lite:      hsl(@hue + 4 * @fft, 50%, 95%);
 
-@cc-state:  hsl(140, 75%, 68%),
-            hsl(70,  75%, 68%),
-            hsl(0,   87%, 60%),
-            hsl(340, 95%, 50%);
-@palette:   @sub, @base, @dark, @text, @semi, @lite,
-            @primary,   saturate(darken(@primary, @diff), @sat),   mix(@primary, @secondary),
-            @secondary, saturate(darken(@secondary, @diff), @sat), mix(@secondary, @tertiary),
-            @tertiary,  mix(saturate(lighten(@tertiary, @diff), 2 * @sat), @secondary, 60%);
+@primary:   hsl(@offset * 1.00 + 211, @sat * 50%, @lum * 57%);
+@secondary: hsl(@offset * 1.33 + 338, @sat * 67%, @lum * 67%); // Storage, units & keywords
+@tertiary:  hsl(@offset * 1.00 + 164, @sat * 50%, @lum * 60%);
+@tertiary:  hsl(@offset * 1.67 + 210, @sat * 8%,  @lum * 41%);
 
-            @colors: #e8304f, #e71f4c, #cc64d0, #9e72bf, #725db4, #6e89c2, #9ecdb0;
+@cc-state:  hsl(140, @sat * 75%, @lum * 68%),
+            hsl(70,  @sat * 75%, @lum * 68%),
+            hsl(0,   @sat * 82%, @lum * 60%),
+            hsl(340, @sat * 90%, @lum * 50%);
 
-            //
-            // @offset:    -5;
-            //
-            // @sub:       hsl(205, 15%, 12%); // #181f2d;
-            // @base:      hsl(210, 30%, 15%); // Background
-            // @dark:      hsl(216, 26%, 28%); // Comments
-            // @text:      hsl(220, 25%, 60%); // Main
-            // @semi:      hsl(228, 30%, 60%);
-            // @lite:      hsl(236, 30%, 95%);
-            //
-            // @primary:   hsl(@offset + 120, 25%, 68%);
-            // @secondary: hsl(@offset * 1.33 + 338, 80%, 67%); // Storage, units & keywords
-            // @tertiary:  hsl(@offset + 164, 100%, 60%);
-            // @tertiary:  hsl(@offset * 1.67 + 210, 25%, 41%);
-            //
-            // // extract(@palette, 5): #E5E9F0;
-            // // extract(@palette, 6): #ECEFF4;
-            // // extract(@palette, 7): #8FBCBB;
-            // // extract(@palette, 8): #88C0D0;
-            // // extract(@palette, 9): #81A1C1;
-            // // extract(@palette, 10): #5E81AC;
-            // // extract(@palette, 11): #BF616A;
-            // // extract(@palette, 12): #D08770;
-            // // extract(@palette, 13): #EBCB8B;
-            // // extract(@palette, 14): #A3BE8C;
-            // // extract(@palette, 15): #B48EAD;
-            //
-            // @cc-state:  hsl(140, 75%, 68%),
-            //             hsl(70,  75%, 68%),
-            //             hsl(0,   87%, 60%),
-            //             hsl(340, 95%, 50%);
-            // @palette:   @sub, @base, @dark, @text, @semi, @lite,
-            //             @primary,   saturate(darken(@primary, 5%), 25%),   mix(@primary, @secondary),
-            //             @secondary, saturate(darken(@secondary, 5%), 25%), mix(@secondary, @tertiary),
-            //             @tertiary,  mix(saturate(lighten(@tertiary, 5%), 50%), @secondary, 60%);
+@palette:
+  @sub,
+  @base,
+  @dark,
+  @text,
+  @semi,
+  @lite,
+  @primary,       saturate(darken(@primary, @diff),   @sat * 25%), mix(@primary, @secondary),
+  @secondary,     saturate(darken(@secondary, @diff), @sat * 25%), mix(@secondary, @tertiary),
+  @tertiary,  mix(saturate(lighten(@tertiary, @diff), @sat * 50%), @secondary, 60%);
+
+
+// @offset:    -5;
+// @primary:   hsl(@offset + 120, 25%, 68%);
+// @secondary: hsl(@offset * 1.33 + 338, 80%, 67%); // Storage, units & keywords
+// @tertiary:  hsl(@offset + 164, 100%, 60%);
+// @tertiary:  hsl(@offset * 1.67 + 210, 25%, 41%);
+//
+// @cc-state:  hsl(140, 75%, 68%),
+//             hsl(70,  75%, 68%),
+//             hsl(0,   87%, 60%),
+//             hsl(340, 95%, 50%);
+// @palette:   @sub, @base, @dark, @text, @semi, @lite,
+//             @primary,   saturate(darken(@primary, 5%), 25%),   mix(@primary, @secondary),
+//             @secondary, saturate(darken(@secondary, 5%), 25%), mix(@secondary, @tertiary),
+//             @tertiary,  mix(saturate(lighten(@tertiary, 5%), 50%), @secondary, 60%), #E5E9F0, #ECEFF4, #8FBCBB, #88C0D0, #81A1C1, #5E81AC, #BF616A, #D08770, #EBCB8B, #A3BE8C, #B48EAD;

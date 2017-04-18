@@ -48,6 +48,14 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "theme": "syntax",
+  "configSchema": {
+    "intensity": {
+      "title": "Intensity",
+      "type": "string",
+      "default": "Normal",
+      "enum": ["Grayscale", "Muted", "Subtle", "Normal", "Intense", "Vivid"]
+    }
+  },
   "eslintConfig": {
     "env": {
       "browser": true,
