@@ -1,6 +1,6 @@
 {
   "name": "alerion-syntax",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Plain elegant, unobtrusive interface featuring configurable, adaptive color palette. It's like having a cake and eating it too.",
   "keywords": [
     "dark",
@@ -53,7 +53,14 @@
       "title": "Intensity",
       "type": "string",
       "default": "Normal",
-      "enum": ["Grayscale", "Muted", "Subtle", "Normal", "Intense", "Vivid"]
+      "enum": [
+        "Grayscale",
+        "Muted",
+        "Subtle",
+        "Normal",
+        "Intense",
+        "Vivid"
+      ]
     }
   },
   "eslintConfig": {
