@@ -1,6 +1,6 @@
 {
   "name": "alerion-syntax",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plain elegant, unobtrusive interface featuring configurable, adaptive color palette. It's like having a cake and eating it too.",
   "keywords": [
     "dark",
@@ -63,9 +63,9 @@
       ]
     },
     "color_scheme": {
-      "title":      "Color Scheme",
-      "type":       "string",
-      "default":    "Cold",
+      "title": "Color Scheme",
+      "type": "string",
+      "default": "Cold",
       "enum": [
         "Cold",
         "Concrete",
