@@ -61,6 +61,17 @@
         "Intense",
         "Vivid"
       ]
+    },
+    "color_scheme": {
+      "title":      "Color Scheme",
+      "type":       "string",
+      "default":    "Cold",
+      "enum": [
+        "Cold",
+        "Concrete",
+        "Scylla",
+        "Ember"
+      ]
     }
   },
   "eslintConfig": {

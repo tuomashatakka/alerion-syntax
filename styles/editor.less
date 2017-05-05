@@ -1,8 +1,22 @@
 @import "syntax-mixins";
+//
+// atom-text-editor:not(.mini):not([mini]) {
+//   .ui-blend(@syntax-background-color) }
 
 atom-text-editor {
   .ui-blend(@syntax-background-color);
   color: @syntax-text-color;
+
+  // &:not(.mini):not([mini]) .editor--private,
+  // &:not(.mini) .editor-contents--private {
+  //   --background-color: inherit;
+  //   .ui-blend(@syntax-background-color) }
+  //
+  // .lines,
+  // .lines > div {
+  //   --background-color: inherit !important;
+  //   background-color: var(--background-color) !important;
+  // }
 
   // Elements
 
@@ -10,7 +24,11 @@ atom-text-editor {
     border-left: 1px solid @syntax-cursor-color }
 
   .line.cursor-line {
-    background-color: @syntax-cursor-line }
+    > * {
+      mix-blend-mode: unset }
+    mix-blend-mode:   screen; // soft-light;
+    font-weight:      600;
+    background-color: fade(@syntax-cursor-line, 50%) }
 
   .selection .region {
     background-color: @syntax-selection-color }
